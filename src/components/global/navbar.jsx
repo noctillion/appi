@@ -18,11 +18,21 @@ class Navbar extends Component {
         path: "/about",
         text: "about",
       },
+      {
+        id: 3,
+        path: "/contact",
+        text: "contact",
+      },
     ],
   }
 
   navbarHandler = () => {
-    console.log("hi")
+    this.state.navbarOpen
+      ? this.setState({ navbarOpen: false, css: "collapse navbar-collapse" })
+      : this.setState({
+          navbarOpen: true,
+          css: "collapse navbar-collapse show",
+        })
   }
 
   render() {
@@ -41,6 +51,22 @@ https://www.iconfinder.com/webalys */}
         >
           <span className="navbar-toggler-icon" />
         </button>
+        <div className={this.state.css}>
+          <ul className="navbar-nav mx-auto">
+            {this.state.links.map(link => {
+              return (
+                <li key={link.id} className="nav-item">
+                  <Link to={link.path} className="nav-link text-capitalize">
+                    {link.text}
+                  </Link>
+                </li>
+              )
+            })}
+            <li className="nav-item ml-sm-2">
+              <FaCartArrowDown className="card-icon" />
+            </li>
+          </ul>
+        </div>
       </nav>
     )
   }

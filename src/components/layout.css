@@ -1,0 +1,33 @@
+:root {
+  --mainBrown: rgb(102, 65, 65);
+  --mainYellow: rgb(235, 151, 16);
+  --mainGray: gray;
+  --mainwhite: white;
+  --mainDark: black;
+}
+
+body {
+  background: var(--mainwhite);
+  color: var(--mainDark);
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Courier New", Courier, monospace !important;
+  letter-spacing: 0.25rem !important;
+}
+
+.text-yellow {
+  color: var(--mainYellow);
+}
+
+.card-icon {
+  cursor: pointer;
+  color: var(--mainYellow);
+  font-size: 2rem;
+}
