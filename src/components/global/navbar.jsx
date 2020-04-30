@@ -6,7 +6,7 @@ import { FaCartArrowDown } from "react-icons/fa"
 class Navbar extends Component {
   state = {
     navbarOpen: false,
-    css: "collapse navbar-cillapse",
+    css: "collapse navbar-collapse",
     links: [
       {
         id: 1,
@@ -35,7 +35,7 @@ Creative Commons (Attribution 3.0 Unported);
 https://www.iconfinder.com/webalys */}
         </Link>
         <button
-          className="navbar-togger"
+          className="navbar-toggler"
           type="button"
           onClick={this.navbarHandler}
         >
