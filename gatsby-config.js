@@ -27,6 +27,17 @@ module.exports = {
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },
     },
+
+    {
+      resolve: `gatsby-source-mongodb`,
+      options: {
+        dbName: `marketplace`,
+        collection: `coffeItem`,
+        server: { address: `ds331548.mlab.com`, port: 31548 },
+        auth: { user: `julian`, password: `Julian12345` },
+      },
+    },
+    // gatsby-source-mongodb se conecta bn con graphql
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
