@@ -2,7 +2,13 @@ import React, { Component } from "react"
 import Title from "../global/title"
 
 let getCategories = items => {
-  return items
+  let tempItems = items.map(items => {
+    return items.node.category
+  })
+  let tempCategories = new Set(tempItems)
+  let categories = Array.from(tempCategories)
+  categories = ["all", ...categories]
+  return categories
 }
 
 class Menu extends Component {
@@ -15,13 +21,47 @@ class Menu extends Component {
       categories: getCategories(props.items.edges),
     }
   }
+
+  handleItems = category => {
+    let tempItems = [...this.state.items] // almacena todo
+    if (category === "all") {
+      this.setState(() => {
+        return { elemItems: tempItems }
+      })
+    } else {
+      let items = tempItems.filter(({ node }) => node.category === category)
+      this.setState(() => {
+        return { elemItems: items }
+      })
+    }
+  }
+
   render() {
-    //console.log(this.state.items)
+    console.log("categories", this.state.categories)
     if (this.state.items.length > 0) {
       return (
         <section className="menu py-5">
           <div className="container">
             <Title title="Best of our market"></Title>
+
+            <div className="row mb-5">
+              <div className="col-10 mx-auto text-center">
+                {this.state.categories.map((category, index) => {
+                  return (
+                    <button
+                      type="button"
+                      key={index}
+                      className="btn btn-yellow text-capitalize m-3"
+                      onClick={() => {
+                        this.handleItems(category)
+                      }}
+                    >
+                      {category}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
 
             <div className="row">
               {this.state.elemItems.map(({ node }) => {
