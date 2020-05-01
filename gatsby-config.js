@@ -39,10 +39,8 @@ module.exports = {
         collection: [`coffeItem`, `coffeProduct`],
         server: { address: `ds331548.mlab.com`, port: 31548 },
         auth: {
-          /* user: process.env.MONGOUSER,
-          password: process.env.MONGOPASSWORD, */
-          user: `julian`,
-          password: `Julian12345`,
+          user: process.env.MONGOUSER,
+          password: process.env.MONGOPASSWORD,
         },
       },
     },
