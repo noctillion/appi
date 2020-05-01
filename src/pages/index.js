@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby" // de aqui viene data
 import Layout from "../components/layout"
 import BackgroundSection from "../components/global/backgroundSection"
 import Info from "../components/home/info"
+import Menu from "../components/home/menu"
 
 import SEO from "../components/seo"
 
@@ -16,6 +17,7 @@ const IndexPage = ({ data }) => (
       styledClass="default-background"
     />
     <Info />
+    <Menu items={data.menu} />
   </Layout>
 )
 
@@ -26,6 +28,18 @@ export let query = graphql`
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+    menu: allMongodbMarketplaceCoffeItem {
+      edges {
+        node {
+          id
+          title
+          description
+          price
+          category
+          image
         }
       }
     }
