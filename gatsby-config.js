@@ -36,7 +36,7 @@ module.exports = {
       resolve: `gatsby-source-mongodb`,
       options: {
         dbName: `marketplace`,
-        collection: `coffeItem`,
+        collection: [`coffeItem`, `coffeProduct`],
         server: { address: `ds331548.mlab.com`, port: 31548 },
         auth: {
           user: process.env.MONGOUSER,

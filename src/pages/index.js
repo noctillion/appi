@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import BackgroundSection from "../components/global/backgroundSection"
 import Info from "../components/home/info"
 import Menu from "../components/home/menu"
+import Products from "../components/home/productos"
 
 import SEO from "../components/seo"
 
@@ -18,6 +19,7 @@ const IndexPage = ({ data }) => (
     />
     <Info />
     <Menu items={data.menu} />
+    <Products items={data.product} />
   </Layout>
 )
 
@@ -40,6 +42,16 @@ export let query = graphql`
           price
           category
           image
+        }
+      }
+    }
+    product: allMongodbMarketplaceCoffeProduct {
+      edges {
+        node {
+          id
+          image
+          price
+          title
         }
       }
     }
