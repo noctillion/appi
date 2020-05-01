@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby MarketPlace`,
@@ -34,7 +38,10 @@ module.exports = {
         dbName: `marketplace`,
         collection: `coffeItem`,
         server: { address: `ds331548.mlab.com`, port: 31548 },
-        auth: { user: `julian`, password: `Julian12345` },
+        auth: {
+          user: process.env.MONGOUSER,
+          password: process.env.MONGOPASSWORD,
+        },
       },
     },
     // gatsby-source-mongodb se conecta bn con graphql
